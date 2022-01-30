@@ -89,13 +89,28 @@ class TrainingWidget extends StatelessWidget {
                           color: AppColors.primaryColor,
                           fontSize: 12,
                         ),
-                        TextVariant(
-                          '${training!.title} (${training!.rating})',
-                          variantType: TextVariantType.headline4,
-                          fontSize: 16,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          fontWeight: FontWeight.bold,
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Expanded(
+                              child: TextVariant(
+                                training!.title ?? '',
+                                variantType: TextVariantType.headline4,
+                                fontSize: 16,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            TextVariant(
+                              '(${training!.rating})',
+                              variantType: TextVariantType.headline4,
+                              fontSize: 16,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ],
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.min,
