@@ -3,9 +3,7 @@ import 'package:flutter_interview_task/domain/data/models/home_swipe.model.dart'
 import 'package:flutter_interview_task/presentation/styles/colors.dart';
 import 'package:flutter_interview_task/presentation/styles/text_styles.dart';
 import 'package:flutter_interview_task/presentation/viewmodels/highlight_detail.viewmodel.dart';
-import 'package:flutter_interview_task/presentation/viewmodels/home.viewmodel.dart';
 import 'package:flutter_interview_task/presentation/views/widgets/custom/text_variant.dart';
-import 'package:flutter_interview_task/presentation/views/widgets/views/compound_training.dart';
 import 'package:intl/intl.dart';
 
 class HighLightDetailPage extends StatelessWidget {
@@ -88,10 +86,17 @@ class _HighLightDetailBody extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: RichText(
           text: TextSpan(
-              text: '\$${model.highlight!.actualPrice.toString()}',
-              style: TextStyles.labelStyle(context: context).copyWith(
-                  color: Colors.red, decoration: TextDecoration.lineThrough),
+              text: 'Price : ',
+              style: TextStyles.labelStyle(context: context)
+                  .copyWith(color: Colors.red, fontSize: 16),
               children: <TextSpan>[
+                TextSpan(
+                    text: '\$${model.highlight!.actualPrice.toString()}',
+                    style: TextStyles.labelStyle(context: context).copyWith(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.lineThrough,
+                        fontSize: 16)),
                 TextSpan(
                     text: ' \$${model.highlight!.price.toString()}',
                     style: TextStyles.labelStyle(context: context).copyWith(
